@@ -30,15 +30,14 @@ while True:
 
     l_b = np.array([l_h, l_s, l_v])
     u_b = np.array([u_h, u_s, u_v])
-
     mask = cv2.inRange(hsv, l_b, u_b)
-
     res = cv2.bitwise_and(frame, frame, mask=mask)
 
-    cv2.imshow("frame", frame)
-    cv2.imshow("mask", mask)
-    cv2.imshow("res", res)
-
+    hstack=np.hstack([frame,res])
+    #cv2.imshow("frame", frame)
+    #cv2.imshow("mask", mask)
+    #cv2.imshow("res", res)
+    cv2.imshow('Horizontal stacking',hstack)
     key = cv2.waitKey(1)
     if key == 27:
         break
